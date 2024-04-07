@@ -21,6 +21,10 @@ devtools::install_github("DSCI-310-2024/predicttornado")
 
 ## Example
 
+Refer to the
+[vignettes](https://github.com/DSCI-310-2024/predicttornado/blob/main/vignettes/predicttornado-vignette.Rmd)
+to view examples on how to use our package functions.
+
 ``` r
 raw_df <- data.frame(
   om = c(156, 189, 26), 
