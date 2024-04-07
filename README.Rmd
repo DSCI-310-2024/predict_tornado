@@ -99,3 +99,14 @@ accuracy_plot(lm_data, fatalities) +
 ggplot2::labs(x = "Actual Number of Fatalities", y = "Predicted Number of Fatalities")
 ```
 
+## predicttornado in the R package ecosystem 
+
+`predicttornado` may seem like a package very similar to other R packages. For example, we have three visualization functions that resemble `ggplot2`. However, they are all slightly different and more tailored to our data analysis project.  `create_scatterplot`and `boxplot_viz` have specific visualization size settings and title and aesthetics that render your visualizations more pleasing. 
+
+Moreover, `accuracy_plot` is very different because even though it uses `ggplot2` functions, no other package function creates a scatterplot that compares the accuracy of a linear regression model to the actual observations. 
+
+`process_data` is also different from `dplyr`'s `select` and `filter` as it combines these different functions to create an efficient data processing function for ease of data analysis. Additionally, it is a specific processing function for analysis tornado data in predicting fatalities. 
+
+Lastly, `fit_linear_model` is also different from other linear regression functions such as `lm` from `stats` for example because it combines multiple steps required in creating and fitting a linear regression model and then automatically outputs useful regression metrics. 
+
+ 
