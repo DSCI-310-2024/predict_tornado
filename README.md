@@ -112,9 +112,8 @@ tailored to our data analysis project. `create_scatterplot`and
 aesthetics that render your visualizations more pleasing.
 
 Moreover, `accuracy_plot` is very different because even though it uses
-`ggplot2` functions, no other package function creates a scatterplot
-that compares the accuracy of a linear regression model to the actual
-observations.
+`ggplot2` functions, it creates a scatterplot that compares the accuracy
+of a linear regression model to the actual observations.
 
 `process_data` is also different from `dplyr`’s `select` and `filter` as
 it combines these different functions to create an efficient data
