@@ -2,10 +2,13 @@ Package: predicttornado
 Title: Help Tornado Analysis 
 Version: 0.0.0.9000
 Authors@R: 
-    person("Erika", "Delorme", , "erika.ku.de5@gmail.com", role = c("aut", "cre"),
+    person("First", "Last", , "first.last@email.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: This package contains functions that help with the data analysis of predicting the number of fatalities using length and width of tornadoes based on tornado data. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
