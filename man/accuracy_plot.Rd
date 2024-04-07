@@ -19,6 +19,6 @@ Creates a scatter plot from the provided data comparing the accuracy of
 a regression model to the actual observations
 }
 \examples{
-accuracy_plot(fatal_predictions, fatalities) + 
+accuracy_plot(fatal_predictions, fatalities) +
 labs(x = "Actual Number of Fatalities", y = "Predicted Number of Fatalities")
 }

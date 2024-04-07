@@ -4,8 +4,8 @@ library(ggplot2)
 library(tidyverse)
 library(tidymodels)
 library(dplyr)
-source("R/accuracy_plot.R")
-source("R/fit_linear_model.R")
+source("../../R/accuracy_plot.R")
+source("../../R/fit_linear_model.R")
 
 lin_model_data <- data.frame('x' = c(1, 2, 1, 1, 2, 3, 6, 5, 7, 4),
            'y' = c(1, 2, 3, 1, 2, 3, 1, 2, 3, 1),
