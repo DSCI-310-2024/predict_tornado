@@ -18,7 +18,10 @@ Imports:
     dplyr,
     ggplot2,
     magrittr,
+    parsnip,
+    recipes,
     tidymodels,
     tidyverse,
-    vdiffr
+    vdiffr,
+    workflows
 VignetteBuilder: knitr

@@ -22,7 +22,7 @@ devtools::install_github("DSCI-310-2024/predicttornado")
 ## Example
 
 ``` r
-tornado_df <- data.frame(
+raw_df <- data.frame(
   om = c(156, 189, 26), 
   yr = c(1950, 1951, 1952), 
   mo = c(10, 11, 12), 
@@ -58,33 +58,46 @@ one of its functions, `process_data`, which processes and cleans your
 data before using it for data analysis.
 
 ``` r
-#library(predicttornado)
+library(magrittr)
+library(predicttornado)
 
-#process_data(tornado_df)
+tornado_df <- process_data(raw_df)
 ```
 
 This package can also be used to create visualizations like scatterplots
-using `create_scatterplot`, boxplots using `boxplot_viz` and accuracy
-plots using `accuracy_plot`.
+using `create_scatterplot`and boxplots using `boxplot_viz`.
 
 ``` r
-#create_scatterplot(tornado_df, width, fatalities) + 
-#labs(x = "Width of tornadoes (yards)", y = "Fatalities", 
-#title = "Figure 2: Scatterplot of width (yards) of tornado and fatalities")
+create_scatterplot(tornado_df, width, fatalities) + 
+ggplot2::labs(x = "Width of tornadoes (yards)", y = "Fatalities", 
+title = "Figure 2: Scatterplot of width (yards) of tornado and fatalities")
 ```
 
-``` r
-#boxplot_viz(tornado_df, fatalities)
-```
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ``` r
-#accuracy_plot(tornado_df, fatalities) + 
-#labs(x = "Actual Number of Fatalities", y = "Predicted Number of Fatalities")
+boxplot_viz(tornado_df, fatalities)
 ```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 You can easily create a linear regression model and fit it to your data
 with the function `fit_linear_model`:
 
 ``` r
-#fit_linear_model(fatalities ~ width + length, tornado_df)
+lm_data <- fit_linear_model(fatalities ~ width + length, tornado_df) |>
+    predict(tornado_df) |>
+    dplyr::bind_cols(tornado_df)
+#> Warning in predict.lm(object = object$fit, newdata = new_data, type =
+#> "response", : prediction from rank-deficient fit; consider predict(.,
+#> rankdeficient="NA")
 ```
+
+You can also create accuracy plots using `accuracy_plot`.
+
+``` r
+accuracy_plot(lm_data, fatalities) + 
+ggplot2::labs(x = "Actual Number of Fatalities", y = "Predicted Number of Fatalities")
+```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
