@@ -23,7 +23,7 @@ devtools::install_github("DSCI-310-2024/predicttornado")
 
 Refer to the
 [vignettes](https://github.com/DSCI-310-2024/predicttornado/blob/main/vignettes/predicttornado-vignette.Rmd)
-to view examples on how to use our package functions.
+to view more examples on how to use our package functions.
 
 ``` r
 raw_df <- data.frame(
@@ -96,15 +96,6 @@ lm_data <- fit_linear_model(fatalities ~ width + length, tornado_df) |>
 #> "response", : prediction from rank-deficient fit; consider predict(.,
 #> rankdeficient="NA")
 ```
-
-You can also create accuracy plots using `accuracy_plot`.
-
-``` r
-accuracy_plot(lm_data, fatalities) + 
-ggplot2::labs(x = "Actual Number of Fatalities", y = "Predicted Number of Fatalities")
-```
-
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 ## predicttornado in the R package ecosystem
 

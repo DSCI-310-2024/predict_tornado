@@ -31,7 +31,7 @@ devtools::install_github("DSCI-310-2024/predicttornado")
 
 ## Example
 
-Refer to the [vignettes](https://github.com/DSCI-310-2024/predicttornado/blob/main/vignettes/predicttornado-vignette.Rmd) to view examples on how to use our package functions. 
+Refer to the [vignettes](https://github.com/DSCI-310-2024/predicttornado/blob/main/vignettes/predicttornado-vignette.Rmd) to view more examples on how to use our package functions. 
 
 ```{r}
 raw_df <- data.frame(
@@ -92,13 +92,6 @@ You can easily create a linear regression model and fit it to your data with the
 lm_data <- fit_linear_model(fatalities ~ width + length, tornado_df) |>
     predict(tornado_df) |>
     dplyr::bind_cols(tornado_df)
-```
-
-You can also create accuracy plots using `accuracy_plot`. 
-
-```{r}
-accuracy_plot(lm_data, fatalities) + 
-ggplot2::labs(x = "Actual Number of Fatalities", y = "Predicted Number of Fatalities")
 ```
 
 ## predicttornado in the R package ecosystem 
