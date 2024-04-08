@@ -20,7 +20,7 @@ This `predicttornado` package was created to help with the data analysis of pred
 
 - Create tailored scatterplots and box plots 
 
-- Create a linear regression plot, fit it to your data, and produce regression metrics 
+- Create a linear regression plot, fit it to your data, and gives you model coefficients and intercept 
 
 - Create accuracy plots 
 
@@ -55,13 +55,56 @@ clean_data <- process_data(tornado_data)
 clean_data
 ```
 
-Our data is processed and we can see that certain features that are redundant have been removed, such as the `date` and `time`. We also removed certain features that we don't need, like `loss`. Moreover, we can also see that the names of certain features have been changed to make them more informative. For example, `len` was changed to `length` and `fat` was changed to `fatalities`. We can also see that the missing values have been removed. 
-
-Next, after data processing, we want to perform some exploratory data analysis by visualizing certain features of interest. Let's say we are interested to see if `length` is related to `fatalities`. We can visualize this relationship using the function `create_scatterplot`. 
-
-```{r scatterplots }
-fatalities_length_scatterplot <- create_scatterplot(clean_data, length, fatalities) + labs(x = "Length of tornadoes (miles)", y = "Fatalities", 
-                                                                                           title = "Figure 3: Scatterplot of length (miles) of tornado and fatalities")
-fatalities_length_scatterplot
+```{r no missing values}
+sapply(clean_data, function(x) sum(is.na(x)))
 ```
 
+Our data is processed and we can see that certain features that are redundant have been removed, such as the `date` and `time`. We also removed certain features that we don't need, like `loss`. Moreover, we can also see that the names of certain features have been changed to make them more informative. For example, `len` was changed to `length` and `fat` was changed to `fatalities`. We can also see that the missing values have been removed.
+
+Next, after data processing, we want to perform some exploratory data analysis by visualizing certain features of interest. Let's say we are interested to see if `width` is related to `fatalities`. We can visualize this relationship using the function `create_scatterplot`. 
+
+```{r scatterplots, fig.width=7, fit.length=7}
+width_fatalities_scatterplot <- create_scatterplot(clean_data, width, fatalities) + 
+ggplot2::labs(x = "Width of tornadoes (yards)", y = "Fatalities", 
+title = "Figure 2: Scatterplot of width (yards) of tornado and fatalities")
+width_fatalities_scatterplot
+```
+
+One other interesting thing you can explore is whether your data is skewed or has outliers. To do this, we can use the function `boxplot_viz` to examine whether our feature of interest, `fatalities`, has outliers. 
+
+```{r boxplots, fig.width=7, fit.length=10}
+boxplot_data <- boxplot_viz(clean_data, fatalities)
+boxplot_data
+
+```
+
+The boxplot shows us that there are a few outliers in our data for `fatalities`. For the sake of this demonstration, we will not be removing the outliers. However, in reality, for data analysis, you may want to remove outliers. This will depend on the decisions you make in your data analysis and project. 
+
+From the scatterplot, we can see that there is some correlation between `width` and `injuries`. However, this correlation does not seem to be very strong. Despite this small correlation, we will create a linear regression model using `width` as a predictor and `injuries` as the target. To do this, we can use the function `fit_linear_model`. 
+
+```{r fit linear model}
+lm_fit <- fit_linear_model(injuries ~ width, clean_data)
+lm_fit
+
+```
+
+**Note**: for proper data analysis, you would want to first split your data into train and test data where you fit your model on the train data and then score on the test data. For this documentation, we are simply showing how to use the functions in `predicttornado`. 
+
+Finally, after fitting your model, we want to compare the accuracy of
+our regression model to the actual number of fatalities. 
+
+```{r accuracy plots, fig.width=7, fit.length=10}
+fatal_predictions <- lm_fit |>
+    predict(clean_data) |>
+    bind_cols(clean_data)
+
+fatal_model <- accuracy_plot(fatal_predictions, fatalities) +
+    xlab("Actual Number of Fatalities") +
+    ylab("Predicted Number of Fatalities") +
+    ggtitle("Actual Number of Fatalities vs Predicted Number of Fatalities")
+fatal_model
+```
+
+The red line can tell us how well our model is predicting the actual number of fatalities. Based on the accuracy plot, we can see that our model is not performing very well. 
+
+Through this document, you have explored all of the functions of `predicttornado`. You are all set to perform your own data analysis with our package. 

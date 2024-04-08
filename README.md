@@ -119,5 +119,5 @@ fatalities.
 Lastly, `fit_linear_model` is also different from other linear
 regression functions such as `lm` from `stats` for example because it
 combines multiple steps required in creating and fitting a linear
-regression model and then automatically outputs useful regression
-metrics.
+regression model and then automatically outputs the model coefficient
+and intercept.

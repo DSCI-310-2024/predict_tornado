@@ -103,6 +103,6 @@ Moreover, `accuracy_plot` is very different because even though it uses `ggplot2
 
 `process_data` is also different from `dplyr`'s `select` and `filter` as it combines these different functions to create an efficient data processing function for ease of data analysis. Additionally, it is a specific processing function for analysis tornado data in predicting fatalities. 
 
-Lastly, `fit_linear_model` is also different from other linear regression functions such as `lm` from `stats` for example because it combines multiple steps required in creating and fitting a linear regression model and then automatically outputs useful regression metrics. 
+Lastly, `fit_linear_model` is also different from other linear regression functions such as `lm` from `stats` for example because it combines multiple steps required in creating and fitting a linear regression model and then automatically outputs the model coefficient and intercept. 
 
  
