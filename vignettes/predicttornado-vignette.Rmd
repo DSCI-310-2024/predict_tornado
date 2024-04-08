@@ -14,6 +14,54 @@ knitr::opts_chunk$set(
 )
 ```
 
+This `predicttornado` package was created to help with the data analysis of predicting the number of fatalities using length and width of tornadoes based on tornado data. It allows you to: 
+
+- Perform data processing and cleaning easily
+
+- Create tailored scatterplots and box plots 
+
+- Create a linear regression plot, fit it to your data, and produce regression metrics 
+
+- Create accuracy plots 
+
+To get started, we load the library:
+
 ```{r setup}
+library(tidyverse)
 library(predicttornado)
 ```
+
+## Data: tornado 
+
+To explore the functions of the `predicttornado` package, we will use `tornados.csv` that can be found [here](https://raw.githubusercontent.com/rfordatascience/tidytuesday/a9e277dd77331e9091e151bb5adb584742064b3e/data/2023/2023-05-16/tornados.csv). 
+
+This `tornado_data` contains a variety of features related to tornadoes, such as the magnitude, the width of tornadoes, the length of tornadoes, the number of fatalities and casualities, and the financial loss. 
+
+```{r load data}
+tornado_data <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/a9e277dd77331e9091e151bb5adb584742064b3e/data/2023/2023-05-16/tornados.csv")
+```
+
+We can see that there are many redundant features, like `date` with `yr` and `f1`, `f2`, `f3`, and `f4`. There are also missing values for certain features, like `mag`. 
+
+```{r missing values}
+sapply(tornado_data, function(x) sum(is.na(x)))
+
+```
+
+We would want to remove these features and rows with missing data, so we will want to do preprocessing of the data. This is where the `process_data` function comes into play. 
+
+```{r process data}
+clean_data <- process_data(tornado_data)
+clean_data
+```
+
+Our data is processed and we can see that certain features that are redundant have been removed, such as the `date` and `time`. We also removed certain features that we don't need, like `loss`. Moreover, we can also see that the names of certain features have been changed to make them more informative. For example, `len` was changed to `length` and `fat` was changed to `fatalities`. We can also see that the missing values have been removed. 
+
+Next, after data processing, we want to perform some exploratory data analysis by visualizing certain features of interest. Let's say we are interested to see if `length` is related to `fatalities`. We can visualize this relationship using the function `create_scatterplot`. 
+
+```{r scatterplots }
+fatalities_length_scatterplot <- create_scatterplot(clean_data, length, fatalities) + labs(x = "Length of tornadoes (miles)", y = "Fatalities", 
+                                                                                           title = "Figure 3: Scatterplot of length (miles) of tornado and fatalities")
+fatalities_length_scatterplot
+```
+
