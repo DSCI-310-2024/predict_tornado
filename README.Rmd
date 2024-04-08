@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # predicttornado
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of predicttornado is to provide functions that help with the data analysis of predicting the number of fatalities using length and width of tornadoes based on tornado data. 
