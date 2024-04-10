@@ -77,13 +77,13 @@ tornado_df <- process_data(raw_df)
 
 This package can also be used to create visualizations like scatterplots using `create_scatterplot`and boxplots using `boxplot_viz`. 
 
-```{r}
+```{r fig.width=7, fit.length=10}
 create_scatterplot(tornado_df, width, fatalities) + 
 ggplot2::labs(x = "Width of tornadoes (yards)", y = "Fatalities", 
 title = "Figure 2: Scatterplot of width (yards) of tornado and fatalities")
 ```
 
-```{r}
+```{r fig.width=7, fit.length=10}
 boxplot_viz(tornado_df, fatalities)
 ```
 
