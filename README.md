@@ -69,8 +69,9 @@ devtools::install_github("DSCI-310-2024/predicttornado")
 
 ## Usage
 
-Refer to the
-[vignettes](https://github.com/DSCI-310-2024/predicttornado/blob/main/vignettes/predicttornado-vignette.Rmd)
+After installing the package, you can use a workflow like the following
+to use its functions. Click
+[here](https://github.com/DSCI-310-2024/predicttornado/blob/main/vignettes/predicttornado-vignette.Rmd)
 for a more detailed guide on how to use our package functions.
 
     library(predicttornado)
