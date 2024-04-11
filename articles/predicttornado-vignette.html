@@ -70,7 +70,10 @@
 
     
     
-<p>This <code>predicttornado</code> package was created to help with the
+<div class="section level2">
+<h2 id="welcome-to-predicttornado">Welcome to predicttornado!<a class="anchor" aria-label="anchor" href="#welcome-to-predicttornado"></a>
+</h2>
+<p>The <code>predicttornado</code> package was created to help with the
 data analysis of predicting the number of fatalities using length and
 width of tornadoes based on tornado data. It allows you to:</p>
 <ul>
@@ -94,6 +97,7 @@ you model coefficients and intercept</p></li>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use the conflicted package (<span style="color: #0000BB; font-style: italic;">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dsci-310-2024.github.io/predicttornado/">predicttornado</a></span><span class="op">)</span></span></code></pre></div>
+</div>
 <div class="section level2">
 <h2 id="data-tornado">Data: tornado<a class="anchor" aria-label="anchor" href="#data-tornado"></a>
 </h2>
@@ -117,6 +121,10 @@ financial loss.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="process_data">process_data<a class="anchor" aria-label="anchor" href="#process_data"></a>
+</h2>
 <p>We can see that there are many redundant features, like
 <code>date</code> with <code>yr</code> and <code>f1</code>,
 <code>f2</code>, <code>f3</code>, and <code>f4</code>. There are also
@@ -171,6 +179,10 @@ certain features have been changed to make them more informative. For
 example, <code>len</code> was changed to <code>length</code> and
 <code>fat</code> was changed to <code>fatalities</code>. We can also see
 that the missing values have been removed.</p>
+</div>
+<div class="section level2">
+<h2 id="create_scatterplot">create_scatterplot<a class="anchor" aria-label="anchor" href="#create_scatterplot"></a>
+</h2>
 <p>Next, after data processing, we want to perform some exploratory data
 analysis by visualizing certain features of interest. Let’s say we are
 interested to see if <code>width</code> is related to
@@ -182,6 +194,10 @@ function <code>create_scatterplot</code>.</p>
 <span>title <span class="op">=</span> <span class="st">"Figure 2: Scatterplot of width (yards) of tornado and fatalities"</span><span class="op">)</span></span>
 <span><span class="va">width_fatalities_scatterplot</span></span></code></pre></div>
 <p><img src="predicttornado-vignette_files/figure-html/scatterplots-1.png" width="672"></p>
+</div>
+<div class="section level2">
+<h2 id="boxplot_viz">boxplot_viz<a class="anchor" aria-label="anchor" href="#boxplot_viz"></a>
+</h2>
 <p>One other interesting thing you can explore is whether your data is
 skewed or has outliers. To do this, we can use the function
 <code>boxplot_viz</code> to examine whether our feature of interest,
@@ -195,6 +211,10 @@ skewed or has outliers. To do this, we can use the function
 be removing the outliers. However, in reality, for data analysis, you
 may want to remove outliers. This will depend on the decisions you make
 in your data analysis and project.</p>
+</div>
+<div class="section level2">
+<h2 id="fit_linear_model">fit_linear_model<a class="anchor" aria-label="anchor" href="#fit_linear_model"></a>
+</h2>
 <p>From the scatterplot, we can see that there is some correlation
 between <code>width</code> and <code>injuries</code>. However, this
 correlation does not seem to be very strong. Despite this small
@@ -225,6 +245,10 @@ first split your data into train and test data where you fit your model
 on the train data and then score on the test data. For this
 documentation, we are simply showing how to use the functions in
 <code>predicttornado</code>.</p>
+</div>
+<div class="section level2">
+<h2 id="accuracy_plot">accuracy_plot<a class="anchor" aria-label="anchor" href="#accuracy_plot"></a>
+</h2>
 <p>Finally, after fitting your model, we want to compare the accuracy of
 our regression model to the actual number of fatalities.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -247,7 +271,8 @@ model is not performing very well.</p>
 <code>predicttornado</code>. You are all set to perform your own data
 analysis with our package.</p>
 </div>
-  </main>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
