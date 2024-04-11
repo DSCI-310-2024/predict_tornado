@@ -25,3 +25,4 @@ Imports:
     vdiffr,
     workflows
 VignetteBuilder: knitr
+URL: https://dsci-310-2024.github.io/predicttornado/
