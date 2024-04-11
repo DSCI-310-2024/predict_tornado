@@ -26,7 +26,7 @@ The `predicttornado` package was created to help with the data analysis of predi
 
 - Create accuracy plots 
 
-To get started, we load the library:
+To get started, we load the library `predicttornado` and `tidyverse`:
 
 ```{r setup}
 library(tidyverse)
