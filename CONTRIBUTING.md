@@ -14,17 +14,17 @@ It must also be noted that input and contributions are not confidential.
 
 ### Creating a Branch
 
-Once your local environment is up-to-date, you can create a new git branch which will contain your contribution. Always create a new branch instead of making changes to the main branch:
+Once your local environment is up-to-date, you can create a new git branch which will contain your changes. Create a new branch instead of making changes to the main branch:
 
 ```cmd
 git switch -c <your-branch-name>
 ```
 
-With this branch checked-out, make the desired changes to the package.
+With this branch checked-out, make your changes.
 
 ### Creating a Pull Request
 
-When you are happy with your changes, you can commit them to your branch by running
+When you are done with your changes, commit them to your branch:
 
 ```cmd
 git add <file-name>
@@ -32,7 +32,7 @@ git commit -m "Description about changes"
 git push origin <your-branch-name>
 ```
 
-You will then need to submit a pull request on GitHub asking to merge your example branch into the main repository.
+Then, submit a pull request on GitHub asking to merge your example branch into the main repository.
 
 ## Pull requests and Issues
 
