@@ -120,4 +120,4 @@ By contributing to this project, you agree to abide by its terms.
 
 `predicttornado` was created by Erika Delorme, Marcela Flaherty, Riddha
 Tuladhar, and Edwin Yeung. It is licensed under the terms of the [MIT
-license](https://github.com/DSCI-310-2024/predicttornado?tab=MIT-2-ov-file).
+license](https://github.com/DSCI-310-2024/predicttornado/blob/main/LICENSE.md).
