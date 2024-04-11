@@ -14,7 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-This `predicttornado` package was created to help with the data analysis of predicting the number of fatalities using length and width of tornadoes based on tornado data. It allows you to: 
+## Welcome to predicttornado!
+
+The `predicttornado` package was created to help with the data analysis of predicting the number of fatalities using length and width of tornadoes based on tornado data. It allows you to: 
 
 - Perform data processing and cleaning easily
 
@@ -41,6 +43,8 @@ This `tornado_data` contains a variety of features related to tornadoes, such as
 tornado_data <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/a9e277dd77331e9091e151bb5adb584742064b3e/data/2023/2023-05-16/tornados.csv")
 ```
 
+## process_data
+
 We can see that there are many redundant features, like `date` with `yr` and `f1`, `f2`, `f3`, and `f4`. There are also missing values for certain features, like `mag`. 
 
 ```{r missing values}
@@ -61,6 +65,8 @@ sapply(clean_data, function(x) sum(is.na(x)))
 
 Our data is processed and we can see that certain features that are redundant have been removed, such as the `date` and `time`. We also removed certain features that we don't need, like `loss`. Moreover, we can also see that the names of certain features have been changed to make them more informative. For example, `len` was changed to `length` and `fat` was changed to `fatalities`. We can also see that the missing values have been removed.
 
+## create_scatterplot
+
 Next, after data processing, we want to perform some exploratory data analysis by visualizing certain features of interest. Let's say we are interested to see if `width` is related to `fatalities`. We can visualize this relationship using the function `create_scatterplot`. 
 
 ```{r scatterplots, fig.width=7, fit.length=7}
@@ -69,6 +75,8 @@ ggplot2::labs(x = "Width of tornadoes (yards)", y = "Fatalities",
 title = "Figure 2: Scatterplot of width (yards) of tornado and fatalities")
 width_fatalities_scatterplot
 ```
+
+## boxplot_viz
 
 One other interesting thing you can explore is whether your data is skewed or has outliers. To do this, we can use the function `boxplot_viz` to examine whether our feature of interest, `fatalities`, has outliers. 
 
@@ -80,6 +88,8 @@ boxplot_data
 
 The boxplot shows us that there are a few outliers in our data for `fatalities`. For the sake of this demonstration, we will not be removing the outliers. However, in reality, for data analysis, you may want to remove outliers. This will depend on the decisions you make in your data analysis and project. 
 
+## fit_linear_model
+
 From the scatterplot, we can see that there is some correlation between `width` and `injuries`. However, this correlation does not seem to be very strong. Despite this small correlation, we will create a linear regression model using `width` as a predictor and `injuries` as the target. To do this, we can use the function `fit_linear_model`. 
 
 ```{r fit linear model}
@@ -89,6 +99,8 @@ lm_fit
 ```
 
 **Note**: for proper data analysis, you would want to first split your data into train and test data where you fit your model on the train data and then score on the test data. For this documentation, we are simply showing how to use the functions in `predicttornado`. 
+
+## accuracy_plot
 
 Finally, after fitting your model, we want to compare the accuracy of
 our regression model to the actual number of fatalities. 
