@@ -1,0 +1,10 @@
+pandoc: 3.1.11
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  predicttornado-vignette: predicttornado-vignette.html
+last_built: 2024-04-11T02:08Z
+urls:
+  reference: https://dsci-310-2024.github.io/predicttornado/reference
+  article: https://dsci-310-2024.github.io/predicttornado/articles
+
