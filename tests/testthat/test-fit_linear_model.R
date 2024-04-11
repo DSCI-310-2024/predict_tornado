@@ -4,7 +4,7 @@ library(dplyr)
 library(parsnip)
 library(recipes)
 library(workflows)
-source("../../R/fit_linear_model.R")
+
 
 testthat_data <- tibble(
   x = 1:10,
