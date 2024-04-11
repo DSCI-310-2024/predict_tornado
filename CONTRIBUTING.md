@@ -20,8 +20,6 @@ Once your local environment is up-to-date, you can create a new git branch which
 git switch -c <your-branch-name>
 ```
 
-With this branch checked-out, make your changes.
-
 ### Creating a Pull Request
 
 When you are done with your changes, commit them to your branch:
