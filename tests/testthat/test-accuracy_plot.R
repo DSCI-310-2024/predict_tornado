@@ -1,6 +1,6 @@
 library(ggplot2)
 library(vdiffr)
-source("../../R/accuracy_plot.R")
+
 
 test_that("refactoring our code should not change our plot", {
   expect_doppelganger("accuracy plot", test_accuracy_plot)

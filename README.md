@@ -4,6 +4,7 @@
 # predicttornado
 
 <!-- badges: start -->
+[![codecov](https://codecov.io/gh/DSCI-310-2024/predicttornado/graph/badge.svg?token=mMPk1l0T8M)](https://codecov.io/gh/DSCI-310-2024/predicttornado)
 <!-- badges: end -->
 
 The goal of predicttornado is to provide functions that help with the

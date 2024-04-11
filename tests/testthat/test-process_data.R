@@ -1,5 +1,5 @@
 library(testthat)
-source("../../R/process_data.R")
+
 
 test_that("`clean_data` should return a data frame or data frame extension with no NA values, and 17 columns named from
           left to right: ID, year, month, day, time, datetime_utc, state, mag, injuries, fatalities, start_lat,

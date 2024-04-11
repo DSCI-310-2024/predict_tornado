@@ -1,6 +1,6 @@
 library(ggplot2)
 library(vdiffr)
-source("../../R/boxplot_viz.R")
+
 
 test_that("refactoring our code should not change our plot", {
   expect_doppelganger("boxplot viz", test_boxplot)

@@ -1,7 +1,7 @@
 # helper functions for boxplot_viz function
 
 library(ggplot2)
-source("../../R/boxplot_viz.R")
+
 
 test_boxplot_data <- data.frame("fatalities" = c(0, 0, 1, 1, 2, 2, 5, 10, 15), 
                                 "magnitude" = c(1, 2, 3, 4, 5, 6, 7, 8, 9))

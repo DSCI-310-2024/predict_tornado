@@ -1,6 +1,6 @@
 library(ggplot2)
 library(vdiffr)
-source("../../R/create_scatterplot.R")
+
 
 test_that("refactoring our code should not change our plot", {
   expect_doppelganger("create scatterplot", body_plot)
