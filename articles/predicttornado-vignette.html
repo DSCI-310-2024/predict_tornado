@@ -202,12 +202,18 @@ function <code>create_scatterplot</code>.</p>
 <p>One other interesting thing you can explore is whether your data is
 skewed or has outliers. To do this, we can use the function
 <code>boxplot_viz</code> to examine whether our feature of interest,
-<code>fatalities</code>, has outliers.</p>
+<code>fatalities</code>, has outliers. Before that, we log transform the
+data.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">boxplot_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/boxplot_viz.html">boxplot_viz</a></span><span class="op">(</span><span class="va">clean_data</span>, <span class="va">fatalities</span><span class="op">)</span> <span class="op">+</span> </span>
+<code class="sourceCode R"><span><span class="va">transformed_data</span> <span class="op">&lt;-</span> <span class="va">clean_data</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>fatalities <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">fatalities</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">boxplot_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/boxplot_viz.html">boxplot_viz</a></span><span class="op">(</span><span class="va">transformed_data</span>, <span class="va">fatalities</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Boxplot of Tornado Fatalities"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Tornado Fatalities"</span>, y <span class="op">=</span> <span class="st">"Values"</span><span class="op">)</span></span>
-<span><span class="va">boxplot_data</span></span></code></pre></div>
+<span><span class="va">boxplot_data</span></span>
+<span><span class="co">#&gt; Warning: Removed 66364 rows containing non-finite outside the scale range</span></span>
+<span><span class="co">#&gt; (`stat_boxplot()`).</span></span></code></pre></div>
 <p><img src="predicttornado-vignette_files/figure-html/boxplots-1.png" width="672"></p>
 <p>The boxplot shows us that there are a few outliers in our data for
 <code>fatalities</code>. For the sake of this demonstration, we will not
