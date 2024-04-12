@@ -81,9 +81,10 @@ width_fatalities_scatterplot
 One other interesting thing you can explore is whether your data is skewed or has outliers. To do this, we can use the function `boxplot_viz` to examine whether our feature of interest, `fatalities`, has outliers. 
 
 ```{r boxplots, fig.width=7, fit.length=10}
-boxplot_data <- boxplot_viz(clean_data, fatalities)
+boxplot_data <- boxplot_viz(clean_data, fatalities) + 
+    ggtitle("Boxplot of Tornado Fatalities") +
+    labs(x = "Tornado Fatalities", y = "Values")
 boxplot_data
-
 ```
 
 The boxplot shows us that there are a few outliers in our data for `fatalities`. For the sake of this demonstration, we will not be removing the outliers. However, in reality, for data analysis, you may want to remove outliers. This will depend on the decisions you make in your data analysis and project. 
