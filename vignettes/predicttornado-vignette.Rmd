@@ -78,10 +78,13 @@ width_fatalities_scatterplot
 
 ## boxplot_viz
 
-One other interesting thing you can explore is whether your data is skewed or has outliers. To do this, we can use the function `boxplot_viz` to examine whether our feature of interest, `fatalities`, has outliers. 
+One other interesting thing you can explore is whether your data is skewed or has outliers. To do this, we can use the function `boxplot_viz` to examine whether our feature of interest, `fatalities`, has outliers. Before that, we log transform the data. 
 
 ```{r boxplots, fig.width=7, fit.length=10}
-boxplot_data <- boxplot_viz(clean_data, fatalities) + 
+transformed_data <- clean_data |>
+    mutate(fatalities = log(fatalities))
+
+boxplot_data <- boxplot_viz(transformed_data, fatalities) + 
     ggtitle("Boxplot of Tornado Fatalities") +
     labs(x = "Tornado Fatalities", y = "Values")
 boxplot_data
